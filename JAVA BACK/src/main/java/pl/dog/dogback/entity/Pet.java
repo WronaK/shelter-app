@@ -3,6 +3,7 @@ package pl.dog.dogback.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -15,8 +16,8 @@ public class Pet {
 
     private String name;
     private String puggle;
-    private Date birthday;
-    private Date shelterDate;
+    private LocalDate birthday;
+    private LocalDate shelterDate;
     private String description;
 
     @OneToOne

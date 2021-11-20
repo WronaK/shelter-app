@@ -1,6 +1,7 @@
 package pl.dog.dogback;
 
 public class ApiPath {
-    private final static String API = "/api";
-    public final static String CALENDAR = API + "/calendar";
+    private static final String API = "/api";
+    public static final  String CALENDAR = API + "/calendar";
+    public static final String PET = API + "/pet";
 }
