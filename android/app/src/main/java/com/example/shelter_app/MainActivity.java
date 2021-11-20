@@ -10,6 +10,8 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.shelter_app.fragment.ScreenSlidePageFragment;
+
 public class MainActivity extends FragmentActivity {
 
     private ViewPager viewPager;

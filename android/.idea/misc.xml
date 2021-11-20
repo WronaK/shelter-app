@@ -3,9 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Kinga/AndroidStudioProjects/shelter-app/android/app/src/main/res/drawable/ic_baseline_close_24.xml" value="0.2911458333333333" />
+        <entry key="..\:/Users/Kinga/AndroidStudioProjects/shelter-app/android/app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.2911458333333333" />
+        <entry key="..\:/Users/Kinga/AndroidStudioProjects/shelter-app/android/app/src/main/res/layout-v28/fragment_screen_slide_page.xml" value="0.371875" />
         <entry key="..\:/Users/Kinga/AndroidStudioProjects/shelter-app/android/app/src/main/res/layout/activity_main.xml" value="0.20885416666666667" />
         <entry key="..\:/Users/Kinga/AndroidStudioProjects/shelter-app/android/app/src/main/res/layout/activity_screen_slider_pager.xml" value="0.5213541666666667" />
-        <entry key="..\:/Users/Kinga/AndroidStudioProjects/shelter-app/android/app/src/main/res/layout/fragment_screen_slide_page.xml" value="0.5213541666666667" />
+        <entry key="..\:/Users/Kinga/AndroidStudioProjects/shelter-app/android/app/src/main/res/layout/fragment_screen_slide_page.xml" value="0.22" />
       </map>
     </option>
   </component>
