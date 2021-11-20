@@ -11,6 +11,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+            app:layout_constraintBaseline_toTopOf="@+id/button"
+            >
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
@@ -123,6 +129,7 @@
                 app:layout_constraintBottom_toTopOf="@+id/linearLayout" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
+        </ScrollView>
 
 
         <Button
