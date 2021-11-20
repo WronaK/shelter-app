@@ -2,12 +2,12 @@ version: '3.1'
 
 services:
   db:
-    container_name: led_world_db
+    container_name: small_dog_db
     image: postgres:13.4
     restart: always
     environment:
       POSTGRES_DB: small_dog
       POSTGRES_USER: small_dog
-      POSTGRES_PASSWORD: pass123
+      POSTGRES_PASSWORD: 123
     ports:
       - 7432:5432
