@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">shelter-app</string>
+    <string name="Login_title">Sign in</string>
+    <string name="e_mail_address_tip">E-mail address:</string>
+    <string name="password_tip">Password:</string>
+    <string name="No_account_tip">Don\'t have account yet?</string>
+    <string name="password_hint">Password</string>
+    <string name="e_mail_hint">E-mail address</string>
 </resources>
