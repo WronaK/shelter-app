@@ -1,62 +1,54 @@
 package com.example.shelter_app;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentStatePagerAdapter;
-import androidx.viewpager.widget.PagerAdapter;
-import androidx.viewpager.widget.ViewPager;
+import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.shelter_app.fragment.ScreenSlidePageFragment;
+import com.example.shelter_app.fragment.FragmentMain;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
-    private ViewPager viewPager;
-    private static final int NUM_PAGES = 5;
-    private PagerAdapter pagerAdapter;
+    BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        bindView();
-        pagerAdapter = new ScreenSliderPagerAdapter(getSupportFragmentManager());
-        viewPager.setAdapter(pagerAdapter);
+
+        bottomNavigationView = findViewById(R.id.bottomNav);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener((BottomNavigationView.OnNavigationItemSelectedListener) this);
+        bottomNavigationView.setSelectedItemId(R.id.calendar);
     }
 
-    private void bindView() {
-        viewPager = findViewById(R.id.viewPager);
-    }
+    FragmentCalendar calendarFragment = new FragmentCalendar();
+    FragmentMain mainFragment = new FragmentMain();
+    FragmentProfile profileFragment = new FragmentProfile();
+
 
     @Override
-    public void onBackPressed() {
-        if (viewPager.getCurrentItem() == 0) {
-            super.onBackPressed();
-        } else {
-            viewPager.setCurrentItem(viewPager.getCurrentItem() - 1);
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId()) {
+            case R.id.calendar:
+                getSupportFragmentManager().beginTransaction().replace(R.id.container, calendarFragment).commit();
+                return true;
+
+            case R.id.main:
+                getSupportFragmentManager().beginTransaction().replace(R.id.container, mainFragment).commit();
+                return true;
+
+            case R.id.profile:
+                getSupportFragmentManager().beginTransaction().replace(R.id.container, profileFragment).commit();
+                return true;
         }
+        return false;
     }
 
-    private class ScreenSliderPagerAdapter extends FragmentStatePagerAdapter {
 
-        public ScreenSliderPagerAdapter(@NonNull FragmentManager fm) {
-            super(fm);
-        }
-
-        @NonNull
-        @Override
-        public Fragment getItem(int position) {
-            return new ScreenSlidePageFragment(position);
-        }
-
-        @Override
-        public int getCount() {
-            return NUM_PAGES;
-        }
-    }
 }
 
