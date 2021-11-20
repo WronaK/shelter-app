@@ -3,20 +3,16 @@ package pl.dog.dogback.entity;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.util.Set;
 
 @Entity
 @Data
-public class Term {
+public class UserProfile {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private LocalDate date;
-    private LocalTime time;
-
-    @ManyToOne
-    private Pet pets;
+    @OneToMany
+    Set<Term> terms;
 }

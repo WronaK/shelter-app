@@ -7,13 +7,14 @@ import java.util.Date;
 
 @Entity
 @Data
-public class Pets {
+public class Pet {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String name;
+    private String puggle;
     private Date birthday;
     private Date shelterDate;
     private String description;
@@ -23,6 +24,4 @@ public class Pets {
 
     @ManyToOne
     private Shelter shelter;
-
-
 }

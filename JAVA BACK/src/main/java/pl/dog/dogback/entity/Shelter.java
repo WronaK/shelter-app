@@ -17,9 +17,10 @@ public class Shelter {
     private String street;
     private String city;
 
-
+    @OneToMany
+    private Set<OpenHours> openHours;
 
     @OneToMany(mappedBy="shelter")
-    private Set<Pets> pets;
+    private Set<Pet> pets;
 
 }
