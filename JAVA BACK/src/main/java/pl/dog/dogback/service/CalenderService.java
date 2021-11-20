@@ -2,20 +2,18 @@ package pl.dog.dogback.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import pl.dog.dogback.entity.OpenHours;
-import pl.dog.dogback.entity.Pet;
-import pl.dog.dogback.entity.Shelter;
-import pl.dog.dogback.entity.Term;
+import pl.dog.dogback.entity.*;
 import pl.dog.dogback.exceotions.NotFoundException;
 import pl.dog.dogback.repository.CrudPetsRepository;
 import pl.dog.dogback.repository.CrudTermRepository;
+import pl.dog.dogback.repository.CrudUserRepository;
 import pl.dog.dogback.service.usecase.CalendarUseCase;
 
-import javax.transaction.Transactional;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -25,6 +23,7 @@ public class CalenderService implements CalendarUseCase {
 
     private final CrudPetsRepository petsRepository;
     private final CrudTermRepository termRepository;
+    private final CrudUserRepository userRepository;
 
     @Override
     public List<Integer> getHoursByDate(LocalDate date, Long petId) {
@@ -55,7 +54,7 @@ public class CalenderService implements CalendarUseCase {
     }
 
     @Override
-    public void registerByDataTime(LocalDateTime dateTime, Long petId) {
+    public void registerByDataTime(LocalDateTime dateTime, Long petId, Long userId) {
         List<Integer> freeHours = getHoursByDate(dateTime.toLocalDate(), petId);
 
         if(freeHours.contains(dateTime.getHour())){
@@ -65,11 +64,17 @@ public class CalenderService implements CalendarUseCase {
         Pet pet = petsRepository.findById(petId)
                 .orElseThrow(() -> new NotFoundException("Not found pet"));
 
-//        Term term = Term.builder()
-//                .date(dateTime)
-//                .pets(pet)
-//                .build();
-//
-//        termRepository.save(term);
+        UserProfile userProfile = userRepository.findById(userId)
+                .orElseThrow(() -> new NotFoundException("Not found user"));
+
+        Term term = new Term();
+        term.setDate(dateTime.toLocalDate());
+        term.setTime(dateTime.toLocalTime());
+        term.setPets(pet);
+
+        userProfile.getTerms().add(term);
+
+        termRepository.save(term);
+        userRepository.save(userProfile);
     }
 }

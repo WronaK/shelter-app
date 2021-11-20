@@ -8,5 +8,5 @@ public interface CalendarUseCase {
 
     List<Integer> getHoursByDate(LocalDate date, Long dogId);
 
-    void registerByDataTime(LocalDateTime dateTime, Long dogId);
+    void registerByDataTime(LocalDateTime dateTime, Long dogId, Long userId);
 }
