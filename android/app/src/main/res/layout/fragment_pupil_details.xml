@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.PupilDetailsFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/layoutName"
+            app:layout_constraintStart_toStartOf="@+id/constraintLayout"
+            android:scaleType="center"
+            android:gravity="center"
+            tools:src="@drawable/dog" />
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/layoutName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/layoutPuggle" >
+            <TextView
+                android:id="@+id/nameLabel"
+                android:layout_width="120dp"
+                android:padding="10dp"
+                android:layout_height="wrap_content"
+                android:background="#413F43"
+                android:text="NAME" />
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#413F43"
+                android:text="TextView"
+                android:padding="10dp"
+                />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/layoutPuggle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/layoutBirthday" >
+
+            <TextView
+                android:id="@+id/puggleLabel"
+                android:layout_width="120dp"
+                android:padding="10dp"
+                android:layout_height="wrap_content"
+                android:background="#413F43"
+                android:text="PUGGLE"
+                app:layout_constraintBottom_toTopOf="@+id/puggle" />
+
+            <TextView
+                android:id="@+id/puggle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#413F43"
+                android:text="TextView"
+                android:padding="10dp"
+                app:layout_constraintBottom_toTopOf="@+id/birthdayLabel" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/layoutBirthday"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/layoutDescription" >
+
+
+            <TextView
+                android:id="@+id/birthdayLabel"
+                android:layout_width="120dp"
+                android:padding="10dp"
+                android:layout_height="wrap_content"
+                android:background="#413F43"
+                android:text="BIRTHDAY" />
+
+            <TextView
+                android:id="@+id/birthday"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#413F43"
+                android:text="TextView" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/layoutDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/button" >
+
+
+            <TextView
+                android:id="@+id/descriptionLabel"
+                android:layout_width="120dp"
+                android:padding="10dp"
+                android:layout_height="wrap_content"
+                android:background="#413F43"
+                android:text="DESCRIPTION"
+                app:layout_constraintBottom_toTopOf="@+id/description" />
+
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="match_parent"
+                android:padding="10dp"
+                android:layout_height="wrap_content"
+                android:background="#413F43"
+                android:text="TextView"
+                app:layout_constraintBottom_toTopOf="@+id/linearLayout" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="#673AB7"
+            android:text="BOOKING WALK"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
